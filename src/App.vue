@@ -6,5 +6,5 @@
 <template>
   <!-- <Books /> -->
   
-  <Modal />
+  <Modal header="Test header" text="Text text" />
 </template>

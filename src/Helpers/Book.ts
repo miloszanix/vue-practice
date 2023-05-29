@@ -1,4 +1,9 @@
-import type { Book } from "@/Helpers/BookType";
+export type Book = {
+  img: string;
+  title: string;
+  author: string;
+  favorite: boolean;
+};
 
 import Book1 from '@/assets/book1.jpg';
 import Book2 from '@/assets/book2.jpg';
