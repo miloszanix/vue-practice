@@ -1,46 +1,11 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+import { Books } from './helpers/Books';
+
+import type { Book } from './helpers/BookType';
 import type { Ref, UnwrapNestedRefs } from "vue";
 
-type Book = {
-  img: string;
-  title: string;
-  author: string;
-  favorite: boolean;
-};
-
-const books: UnwrapNestedRefs<Book[]> = reactive([
-  {
-    title: "To Kill a Mockingbird",
-    author: "Harper Lee",
-    img: "@/assets/book1.jpg",
-    favorite: true,
-  },
-  {
-    title: "1984",
-    author: "George Orwell",
-    img: "@/assets/book2.jpg",
-    favorite: false,
-  },
-  {
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    img: "@/assets/book3.jpg",
-    favorite: false,
-  },
-  {
-    title: "Pride and Prejudice",
-    author: "Jane Austen",
-    img: "@/assets/book4.jpg",
-    favorite: true,
-  },
-  {
-    title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
-    img: "@/assets/book5.jpg",
-    favorite: false,
-  },
-]);
+const books: UnwrapNestedRefs<Book[]> = reactive(Books);
 
 let showBooks: Ref<boolean> = ref(false);
 
@@ -50,7 +15,7 @@ const toggleShowBooks = (): void => {
 
 const toggleFavorite = (book: Book): void => {
   const foundBook: Book | undefined = books.find(
-    (b) => b.title === book.title && b.author === book.author
+    (b: Book) => b.title === book.title && b.author === book.author
   );
   if (foundBook) {
     foundBook.favorite = !foundBook.favorite;
