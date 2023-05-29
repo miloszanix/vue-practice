@@ -1,15 +1,12 @@
-<script lang="ts">
+<script setup lang="ts">
 
-import { defineComponent } from 'vue';
+import { defineEmits } from 'vue';
 
-export default defineComponent({
-  methods: {
-    emitCloseModal(): void { 
-      this.$emit('closeModal');
-    }
-  }
-});
+const emit = defineEmits(['closeModal']);
 
+const emitCloseModal = (): void => {
+  emit("closeModal");
+};
 </script>
 
 
@@ -18,10 +15,10 @@ export default defineComponent({
     <div class="bg-gray-800 opacity-75 fixed inset-0" @click="emitCloseModal"></div>
     <div class="bg-white p-6 w-[500px] h-[300px] rounded-lg relative">
       <slot />
-      <slot name="content"/>
+      <slot name="content" />
       <p>divider</p>
       <slot name="links" />
-      <br>
+      <br />
       <button
         class="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
       >
