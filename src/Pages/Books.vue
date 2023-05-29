@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
-import { Books } from "@/helpers/Books";
+import { Books } from "@/Helpers/Books";
 
-import type { Book } from "@/helpers/BookType";
+import type { Book } from "@/Helpers/BookType";
 import type { Ref, UnwrapNestedRefs } from "vue";
 
 const books: UnwrapNestedRefs<Book[]> = reactive(Books);

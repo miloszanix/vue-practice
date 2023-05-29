@@ -1,4 +1,4 @@
-import type { Book } from "@/helpers/BookType";
+import type { Book } from "@/Helpers/BookType";
 
 import Book1 from '@/assets/book1.jpg';
 import Book2 from '@/assets/book2.jpg';
