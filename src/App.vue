@@ -49,7 +49,7 @@ const toggleShowBooks = (): void => {
 };
 
 const toggleFavorite = (book: Book): void => {
-  const foundBook = books.value.find(
+  const foundBook: Book | undefined = books.value.find(
     (b) => b.title === book.title && b.author === book.author
   );
   if (foundBook) {
