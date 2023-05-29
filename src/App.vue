@@ -48,7 +48,8 @@ const handleMousemove = (e: MouseEvent): void => {
       class="rounded-lg shadow-lg p-6 my-8 flex justify-between items-center"
       @click="toggleFavorite(book)"
     >
-      <img class="w-[100px] h-[100px]" :href="book.img" />
+      <!-- <img class="w-[100px] h-[100px]" src="./assets/book1.jpg" /> -->
+      <img class="w-[100px] h-[100px]" :src="book.img" />
       <span>{{ book.title }}</span>
       <span>{{ book.author }}</span>
     </li>
