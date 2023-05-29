@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import type { Ref } from "vue";
 
 type Book = {
@@ -9,7 +9,7 @@ type Book = {
   favorite: boolean;
 };
 
-const books: Ref<Book[]> = ref([
+let books: Ref<Book[]> = ref([
   {
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
@@ -49,8 +49,17 @@ const toggleShowBooks = (): void => {
 };
 
 const toggleFavorite = (book: Book): void => {
-  book.favorite = !book.favorite;
+  const foundBook = books.value.find(
+    (b) => b.title === book.title && b.author === book.author
+  );
+  if (foundBook) {
+    foundBook.favorite = !foundBook.favorite;
+  }
 };
+
+const filterFavorites = (): void => {
+  books.value = books.value.filter((book: Book) => book.favorite);
+}; 
 
 const handleEvent = (): void => {
   console.log("event");
@@ -79,10 +88,15 @@ const handleMousemove = (e: MouseEvent): void => {
       <span>{{ book.author }}</span>
     </li>
   </ul>
-  <button class="mt-3" @click="toggleShowBooks">
-    <span v-if="showBooks">Hide books</span>
-    <span v-else>Show books</span>
-  </button>
+  <div class="flex gap-10">
+    <button class="mt-3" @click="toggleShowBooks">
+      <span v-if="showBooks">Hide books</span>
+      <span v-else>Show books</span>
+    </button>
+    <button v-if="showBooks" class="mt-3" @click="filterFavorites">
+      Filter
+    </button>
+  </div>
 
   <br />
 
