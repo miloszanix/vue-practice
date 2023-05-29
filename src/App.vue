@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import Books from '@/Pages/Books.vue';
-  import Modal from '@/Components/Modal.vue';
+  import Giveaway from '@/Pages/Giveaway.vue';
 </script>
 
 <template>
   <!-- <Books /> -->
   
-  <Modal header="Test header" text="Text text" />
+  <Giveaway />
 </template>
