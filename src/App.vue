@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import type { Ref } from "vue";
 
 type Book = {
@@ -44,25 +44,25 @@ const books: Ref<Book[]> = ref([
 
 let showBooks: Ref<boolean> = ref(false);
 
-function toggleShowBooks(): void {
+const toggleShowBooks = (): void => {
   showBooks.value = !showBooks.value;
-}
+};
 
-function toggleFavorite(book: Book): void {
+const toggleFavorite = (book: Book): void => {
   book.favorite = !book.favorite;
-}
+};
 
-function handleEvent(): void {
+const handleEvent = (): void => {
   console.log("event");
-}
+};
 
 const x: Ref<number> = ref(-1);
 const y: Ref<number> = ref(-1);
 
-function handleMousemove(e: MouseEvent): void {
+const handleMousemove = (e: MouseEvent): void => {
   x.value = e.offsetX;
   y.value = e.offsetY;
-}
+};
 </script>
 
 <template>
