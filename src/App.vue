@@ -9,7 +9,7 @@ type Book = {
   favorite: boolean;
 };
 
-let books: Ref<Book[]> = ref([
+const books: Ref<Book[]> = ref([
   {
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
