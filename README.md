@@ -1,46 +1,52 @@
-# vue-practice
+# Project Name
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a web application built with Vue.js, configured by Vite, and utilizing TypeScript for enhanced type safety. It aims to provide a robust foundation for building modern web interfaces with efficient development workflows.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **Vue.js**: Leverage the power and simplicity of Vue.js to create reactive and interactive components.
+- **Vite**: Utilize the fast and flexible build tool to optimize development and build processes.
+- **TypeScript**: Enjoy the benefits of static typing and improved tooling for a more reliable and scalable codebase.
 
-## Type Support for `.vue` Imports in TS
+## Getting Started
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+Follow the instructions below to get the project up and running on your local machine.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### Prerequisites
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- Node.js (version 20.2.0)
 
-## Customize configuration
+### Installation
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. Clone the repository: `git clone https://github.com/miloszanix/ts-vue.git`
+2. Navigate to the project directory: `cd project-name`
+3. Install dependencies: `npm install`
 
-## Project Setup
+### Development
 
-```sh
-npm install
-```
+To start the development server, run the following command:
 
-### Compile and Hot-Reload for Development
-
-```sh
+```shell
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+This will launch the application at http://localhost:5173. Any changes made to the source code will be automatically reflected in the browser.
 
-```sh
+### Build
+
+```shell
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+The optimized and minified files will be generated in the `dist` directory.
 
-```sh
+### Lint
+
+To run the linting checks on the codebase, use the following command:
+
+```shell
 npm run lint
 ```
+
+### Contributing
+Contributions are welcome! If you have any bug fixes, enhancements, or new features to propose, please open an issue or submit a pull request.
