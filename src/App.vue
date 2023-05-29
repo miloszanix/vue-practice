@@ -3,43 +3,53 @@ import { ref } from "vue";
 import type { Ref } from "vue";
 
 type Book = {
-  author: string,
-  title: string,
-  age: number
+  img: string;
+  title: string;
+  author: string;
+  favorite: boolean;
 };
 
-const books: Book[] = [
+const books: Ref<Book[]> = ref([
   {
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
-    age: 60
+    img: "@/assets/book1.jpg",
+    favorite: true,
   },
   {
     title: "1984",
     author: "George Orwell",
-    age: 72
+    img: "@/assets/book2.jpg",
+    favorite: false,
   },
   {
     title: "The Great Gatsby",
     author: "F. Scott Fitzgerald",
-    age: 97
+    img: "@/assets/book3.jpg",
+    favorite: false,
   },
   {
     title: "Pride and Prejudice",
     author: "Jane Austen",
-    age: 209
+    img: "@/assets/book4.jpg",
+    favorite: true,
   },
   {
     title: "The Catcher in the Rye",
     author: "J.D. Salinger",
-    age: 70
-  }
-];
+    img: "@/assets/book5.jpg",
+    favorite: false,
+  },
+]);
 
 let showBooks: Ref<boolean> = ref(false);
 
 function toggleShowBooks(): void {
   showBooks.value = !showBooks.value;
+}
+
+function toggleFavorite(book: Book): void {
+  book.favorite = !book.favorite;
 }
 
 function handleEvent(): void {
@@ -56,11 +66,19 @@ function handleMousemove(e: MouseEvent): void {
 </script>
 
 <template>
-  <h1 v-if="showBooks" className="text-3xl font-bold underline">
-    <template v-for="(book, index) in books" :key="index">
-      {{ book.title }} - {{ book.author }} - {{ book.age }} <br>
-    </template>
-  </h1>
+  <ul v-if="showBooks" class="px-20">
+    <li
+      v-for="(book, index) in books"
+      :key="index"
+      :class="book.favorite ? 'bg-pink-400' : 'bg-slate-400'"
+      class="rounded-lg shadow-lg p-6 my-8 flex justify-between items-center"
+      @click="toggleFavorite(book)"
+    >
+      <img class="w-[100px] h-[100px]" :href="book1" />
+      <span>{{ book.title }}</span>
+      <span>{{ book.author }}</span>
+    </li>
+  </ul>
   <button class="mt-3" @click="toggleShowBooks">
     <span v-if="showBooks">Hide books</span>
     <span v-else>Show books</span>
@@ -68,7 +86,8 @@ function handleMousemove(e: MouseEvent): void {
 
   <br />
 
-  <div class="mt-4 flex gap-5">
+  <!-- uncomment this to see mouse events -->
+  <!-- <div class="mt-4 flex gap-5">
     <div
       class="flex items-center justify-center px-28 py-0 bg-slate-400 w-96 h-96 text-center" @mouseover="handleEvent">
         mouseover (event)
@@ -87,5 +106,5 @@ function handleMousemove(e: MouseEvent): void {
         Position: x - {{ x }}; y - {{ y }}
       </template>
     </div>
-  </div>
+  </div> -->
 </template>
