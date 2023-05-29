@@ -1,4 +1,4 @@
-# Project Name
+# Vue Practice
 
 This project is a web application built with Vue.js, configured by Vite, and utilizing TypeScript for enhanced type safety. It aims to provide a robust foundation for building modern web interfaces with efficient development workflows.
 
@@ -19,7 +19,7 @@ Follow the instructions below to get the project up and running on your local ma
 ### Installation
 
 1. Clone the repository: `git clone https://github.com/miloszanix/ts-vue.git`
-2. Navigate to the project directory: `cd project-name`
+2. Navigate to the project directory: `cd ts-vue`
 3. Install dependencies: `npm install`
 
 ### Development
