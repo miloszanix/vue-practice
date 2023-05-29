@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import type { Ref } from "vue";
+import { reactive, ref } from "vue";
+import type { Ref, UnwrapNestedRefs } from "vue";
 
 type Book = {
   img: string;
@@ -9,7 +9,7 @@ type Book = {
   favorite: boolean;
 };
 
-const books: Ref<Book[]> = ref([
+const books: UnwrapNestedRefs<Book[]> = reactive([
   {
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
@@ -49,7 +49,7 @@ const toggleShowBooks = (): void => {
 };
 
 const toggleFavorite = (book: Book): void => {
-  const foundBook: Book | undefined = books.value.find(
+  const foundBook: Book | undefined = books.find(
     (b) => b.title === book.title && b.author === book.author
   );
   if (foundBook) {
@@ -58,8 +58,8 @@ const toggleFavorite = (book: Book): void => {
 };
 
 const filterFavorites = (): void => {
-  books.value = books.value.filter((book: Book) => book.favorite);
-}; 
+  books.splice(0, books.length, ...books.filter((book) => book.favorite));
+};
 
 const handleEvent = (): void => {
   console.log("event");
