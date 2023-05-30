@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
-import type { UnwrapNestedRefs } from 'vue';
+import { ref, onMounted } from 'vue';
+import type { Ref } from 'vue';
+import type { Job } from '@/Helpers/Job';
 
-type Job = {
-    id: number;
-    title: string;
-    details: string;
-};
+let jobs: Ref<Job[]> = ref([]);
 
-const jobs: UnwrapNestedRefs<Job[]> = reactive([
-    { id: 1, title: 'Ninja UX Designer', details: 'Lorem' },
-    { id: 2, title: 'Ninja Web Developer', details: 'Lorem' },
-    { id: 3, title: 'Ninja Vue Developer', details: 'Lorem' },
-]);
+onMounted(() => {
+    fetch('http://localhost:3000/jobs')
+        .then(res => res.json())
+        .then((data: Job[]) => { 
+            jobs.value = data;
+        })
+        .catch(error => console.log(error));
+});
+
 </script>
 
 <template>
