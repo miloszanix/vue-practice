@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref, defineEmits, defineProps } from "vue";
-import { Ref } from "vue";
+import { onMounted, ref } from "vue";
+import type { Ref } from "vue";
 
 const props = defineProps({
   delay: {
